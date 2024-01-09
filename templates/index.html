@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinopsis Film Finder</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <h1>Sinopsis Film Finder</h1>
+    <div id="searchContainer">
+        <label for="searchBox">Cari Sinopsis Film:</label>
+        <input type="text" id="searchBox" placeholder="{{ placeholder }} ">
+        <button onclick="searchSynopsis()">Cari</button>
+    </div>
+
+    <div id="outputContainer">
+        <h2>Hasil Pencarian:</h2>
+        <ul id="filmList">
+            {% if result %}
+                {% for movie in result %}
+                    <li>{{ movie }}</li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+
+    <script>
+        function searchSynopsis() {
+            var userInput = document.getElementById('searchBox').value;
+            window.location.href = '/?user_input=' + encodeURIComponent(userInput);
+        }
+    </script>
+</body>
+</html>
