@@ -1,11 +1,8 @@
-from flask import Flask, render_template, request, redirect
-
-import flask
+from flask import Flask, render_template, request
 
 import pandas as pd
 import gensim
-from gensim.parsing.preprocessing import preprocess_documents
-from gensim.models.doc2vec import Doc2Vec, TaggedDocument
+from gensim.models.doc2vec import Doc2Vec
 
 app = Flask(__name__)
 
